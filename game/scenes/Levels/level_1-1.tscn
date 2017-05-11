@@ -188,6 +188,8 @@ transform/pos = Vector2( 2497.84, 1544.71 )
 
 [node name="platforms" type="Node" parent="."]
 
+editor/display_folded = true
+
 [node name="platform" parent="platforms" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 4366.64, 692.162 )
