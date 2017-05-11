@@ -1,8 +1,12 @@
 extends KinematicBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+export var limit_left=0
+export var limit_right = 100000
+export var limit_up = -100000
+export var limit_down = 100000
+export var die_at_Y=100000
+
+
 const MAX_SPEED=10
 const WALK_SPEED = 350
 const GRAVITY = 2500;
@@ -73,6 +77,21 @@ func _process(delta):
 		
 	if airborn_time > .1: ##not falling
 		play_animation("falling")
+		
+	var pos = get_pos()
+	if pos.x < limit_left:
+		pos.x = limit_left
+		set_pos(pos)
+	if pos.x > limit_right:
+		pos.x = limit_right
+		set_pos(pos)
+	if pos.y < limit_up:
+		pos.y = limit_up
+		set_pos(pos)
+	if pos.y > limit_down:
+		pos.y = limit_down
+		set_pos(pos)
+	
 
 
 func jump():

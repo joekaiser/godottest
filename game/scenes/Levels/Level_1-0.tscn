@@ -1,71 +1,20 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://world/fantasy_world/level_0.scn" type="PackedScene" id=1]
-[ext_resource path="res://world/fantasy_world/backgrounds/Background - 01.tex" type="Texture" id=2]
-[ext_resource path="res://world/fantasy_world/backgrounds/Background - 02.tex" type="Texture" id=3]
-[ext_resource path="res://world/fantasy_world/backgrounds/Background - 03.tex" type="Texture" id=4]
-[ext_resource path="res://world/music/Lively_lumpsucker.ogg" type="AudioStream" id=5]
-[ext_resource path="res://scenes/super_bunny/super_bunny.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/carrot/carrot.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/backgrounds/FantasyParallaxBackground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://world/music/Lively_lumpsucker.ogg" type="AudioStream" id=3]
+[ext_resource path="res://scenes/super_bunny/super_bunny.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/carrot/carrot.tscn" type="PackedScene" id=5]
 
 [node name="Level_1-0" type="Node"]
 
 [node name="level_0" parent="." instance=ExtResource( 1 )]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-layer = -1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-scroll/offset = Vector2( 0, 0 )
-scroll/base_offset = Vector2( 0, 0 )
-scroll/base_scale = Vector2( 1, 1 )
-scroll/limit_begin = Vector2( 0, 0 )
-scroll/limit_end = Vector2( 0, 0 )
-scroll/ignore_camera_zoom = true
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-
-editor/display_folded = true
-motion/scale = Vector2( 0.1, 1 )
-motion/offset = Vector2( 0, 0 )
-motion/mirroring = Vector2( 1334, 3000 )
-
-[node name="sky" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-
-transform/scale = Vector2( 1, 2 )
-texture = ExtResource( 2 )
-centered = false
-
-[node name="clouds" type="ParallaxLayer" parent="ParallaxBackground"]
-
-motion/scale = Vector2( 0.4, 1 )
-motion/offset = Vector2( 0, 0 )
-motion/mirroring = Vector2( 1334, 0 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/clouds"]
-
-transform/pos = Vector2( 0, 197.082 )
-transform/scale = Vector2( 1, 1.44118 )
-texture = ExtResource( 3 )
-centered = false
-
-[node name="hills" type="ParallaxLayer" parent="ParallaxBackground"]
-
-motion/scale = Vector2( 0.8, 1 )
-motion/offset = Vector2( 0, 0 )
-motion/mirroring = Vector2( 1334, 0 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/hills"]
-
-transform/pos = Vector2( 0, 487.976 )
-texture = ExtResource( 4 )
-centered = false
+[node name="ParallaxBackground" parent="." instance=ExtResource( 2 )]
 
 [node name="music" type="StreamPlayer" parent="."]
 
-stream/stream = ExtResource( 5 )
+stream/stream = ExtResource( 3 )
 stream/play = false
 stream/loop = true
 stream/volume_db = -15.0
@@ -74,10 +23,15 @@ stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
-[node name="super_bunny" parent="." instance=ExtResource( 6 )]
+[node name="super_bunny" parent="." instance=ExtResource( 4 )]
 
 editor/display_folded = true
 transform/pos = Vector2( 572.554, 921.753 )
+limit_left = 0
+limit_right = 100000
+limit_up = -10000
+limit_down = 10000
+die_at_Y = 100000
 
 [node name="Camera2D" type="Camera2D" parent="super_bunny"]
 
@@ -101,104 +55,104 @@ drag_margin/bottom = 0.2
 
 [node name="carrots" type="Node" parent="."]
 
-[node name="carrot" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 925.209, 1044.88 )
 
-[node name="carrot1" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot1" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 993.928, 987.281 )
 
-[node name="carrot2" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot2" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 1057.88, 1054.81 )
 
-[node name="carrot3" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot3" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 2215.79, 951.02 )
 
-[node name="carrot4" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot4" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 2295.79, 951.02 )
 
-[node name="carrot5" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot5" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 2375.79, 951.02 )
 
-[node name="carrot6" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot6" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 2455.79, 951.02 )
 
-[node name="carrot7" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot7" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 2846.57, 1043.73 )
 special = true
 
-[node name="carrot8" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot8" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 2337.56, 526.844 )
 
-[node name="carrot9" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot9" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 2437.56, 526.844 )
 
-[node name="carrot10" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot10" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 2537.56, 526.844 )
 
-[node name="carrot11" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot11" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 2637.56, 526.844 )
 
-[node name="carrot12" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot12" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 2737.56, 526.844 )
 
-[node name="carrot13" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot13" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 2837.56, 526.844 )
 
-[node name="carrot14" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot14" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 3424.82, 547.897 )
 
-[node name="carrot15" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot15" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 3424.82, 517.897 )
 
-[node name="carrot16" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot16" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 3424.82, 487.897 )
 
-[node name="carrot17" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot17" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 3424.82, 457.897 )
 
-[node name="carrot18" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot18" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 4320.82, 1056.9 )
 
-[node name="carrot19" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot19" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 4383.82, 991.898 )
 
-[node name="carrot20" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot20" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 4447.82, 926.898 )
 
-[node name="carrot21" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot21" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 5025.82, 823.898 )
 
-[node name="carrot22" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot22" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 5025.82, 773.898 )
 
-[node name="carrot23" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot23" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 5025.82, 723.898 )
 
-[node name="carrot24" parent="carrots" instance=ExtResource( 7 )]
+[node name="carrot24" parent="carrots" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 5025.82, 673.898 )
 
