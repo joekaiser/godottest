@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=1]
 
-[ext_resource path="res://scenes/Levels/level_root.gd" type="Script" id=1]
+[ext_resource path="res://scenes/world/level_root.gd" type="Script" id=1]
 [ext_resource path="res://scenes/carrot/carrot_1.png" type="Texture" id=2]
 [ext_resource path="res://gui/32-white-shadow.fnt" type="BitmapFont" id=3]
 
