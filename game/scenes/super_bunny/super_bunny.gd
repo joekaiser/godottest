@@ -85,6 +85,8 @@ func _fixed_process(delta):
 	
 	constrain_pos()
 
+func bounce(power):
+	velocity.y=-JUMP_FORCE*power
 
 
 func jump():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://scenes/world/level_root.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/world/fantasy_world/map_1-1.scn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/world/fantasy_world/music/Lively_lumpsucker.ogg" type="AudioStream" id=5]
 [ext_resource path="res://scenes/carrot/carrot.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/moving_platforms/platform1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/mushroom/mushroom.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Animation" id=1]
 
@@ -85,8 +86,6 @@ stream/buffering_ms = 500
 
 [node name="carrots" type="Node" parent="."]
 
-editor/display_folded = true
-
 [node name="carrot" parent="carrots" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 1124.03, 1488.14 )
@@ -131,6 +130,30 @@ special = true
 [node name="carrot11" parent="carrots" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 3353.44, 1022.61 )
+
+[node name="carrot25" parent="carrots" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 3592.21, 1479.39 )
+
+[node name="carrot26" parent="carrots" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 3592.21, 1429.39 )
+
+[node name="carrot27" parent="carrots" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 3592.21, 1379.39 )
+
+[node name="carrot28" parent="carrots" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 3592.21, 1329.39 )
+
+[node name="carrot29" parent="carrots" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 3592.21, 1279.39 )
+
+[node name="carrot30" parent="carrots" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 3592.21, 1229.39 )
 
 [node name="carrot12" parent="carrots" instance=ExtResource( 6 )]
 
@@ -206,6 +229,15 @@ playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = "Platform1"
+
+[node name="enemies" type="Node" parent="."]
+
+[node name="mushrooms" type="Node" parent="."]
+
+[node name="mushroom" parent="mushrooms" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 3590.46, 1561.55 )
+transform/scale = Vector2( 0.6, 0.6 )
 
 
 [editable path="ParallaxBackground"]
