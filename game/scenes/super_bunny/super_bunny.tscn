@@ -86,7 +86,7 @@ samples/jump3 = {
 "sample": ExtResource( 40 )
 }
 
-[node name="super_bunny" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D"]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
