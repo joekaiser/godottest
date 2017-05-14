@@ -2,7 +2,7 @@ extends RigidBody2D
 
 const STATE_WALKING = 0
 const STATE_DYING = 1
-const WALK_SPEED = 75
+const WALK_SPEED = 85
 
 var state = STATE_WALKING
 var direction = -1
@@ -13,6 +13,7 @@ onready var sprite = get_node("sprite")
 onready var enabler = get_node("enabler")
 onready var rc_left = get_node("raycast_left")
 onready var rc_right = get_node("raycast_right")
+onready var rc_back =get_node("raycast_back")
 
 func _ready():
 	enabler.connect("enter_screen",self,"on_enabler_enter")
@@ -22,12 +23,16 @@ func on_enabler_enter():
 	isActive = true
 
 func on_enabler_exit(): 
-	isActive = false
-
+	#isActive = false
+	pass
+	
 func die():
+	print ('death')
 	queue_free()
 
 func _integrate_forces(s):
+	if !isActive:
+		return
 	var lv = s.get_linear_velocity()
 	var new_anim = anim
 
@@ -63,12 +68,14 @@ func _integrate_forces(s):
 		if wall_side != 0 and wall_side != direction:
 			direction = -direction
 			sprite.set_flip_h(direction==-1)
-		if direction < 0 and not rc_left.is_colliding() and rc_right.is_colliding():
-			direction = -direction
-			sprite.set_flip_h(true)
-		elif direction > 0 and not rc_right.is_colliding() and rc_left.is_colliding():
-			direction = -direction
-			sprite.set_flip_h(true)
+		if rc_back.is_colliding() && rc_back.get_collider() extends player_class:
+			rc_back.get_collider().hurt()
+		#if direction < 0 and not rc_left.is_colliding() and rc_right.is_colliding():
+			#direction = -direction
+			#sprite.set_flip_h(direction==-1)
+		#elif direction > 0 and not rc_right.is_colliding() and rc_left.is_colliding():
+			#direction = -direction
+			#sprite.set_flip_h(direction==-1)
 		
 		lv.x = direction*WALK_SPEED
 	
