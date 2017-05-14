@@ -7,25 +7,26 @@ export var limit_down = 100000
 export var die_at_Y=100000
 
 
-const MAX_SPEED=10
 const WALK_SPEED = 350
 const GRAVITY = 2500;
 const JUMP_FORCE = 800;
 const TERMINAL_VELOCITY = 20
 const MAX_JUMPS = 2
 
+onready var sprite = get_node("AnimatedSprite")
+onready var sfx = get_node("sfx")
+onready var anim = get_node("animation")
+
 var velocity = Vector2()
-var sprite
-var sfx
 var jump_count=0
 var airborn_time=0
+var is_dead = false
+var last_damage_at=0
 
 func _ready():
 	set_process_input(true)
 	set_fixed_process(true)
-	sprite = get_node("AnimatedSprite")
 	sprite.play("idle")
-	sfx = get_node("sfx")
 	
 func play_animation(name):
 	sprite.set_animation(name);
@@ -54,17 +55,17 @@ func _fixed_process(delta):
 		play_animation("idle")
 	
 	var motion = velocity * delta
-	if(motion.y>TERMINAL_VELOCITY):
+	if motion.y>TERMINAL_VELOCITY:
 		motion.y=TERMINAL_VELOCITY
 	
 	motion = move(motion)
 	
-	if (is_colliding()):
+	if is_colliding():
 		var n = get_collision_normal()
 		motion = n.slide(motion)
 		velocity = n.slide(velocity)
 
-		if(n == Vector2(0,-1)):
+		if n == Vector2(0,-1):
 			found_floor = true
 			floor_velocity = get_collider_velocity()
 			jump_count = 0
@@ -109,3 +110,20 @@ func constrain_pos():
 	if pos.y > limit_down:
 		pos.y = limit_down
 		set_pos(pos)
+		
+func die():
+	is_dead = true
+	
+func get_is_dead():
+	return is_dead
+	
+func hurt():
+	if can_be_hurt():
+		last_damage_at = OS.get_ticks_msec()
+		sfx.play("player_hurt")
+		anim.play("hurt")
+	
+func can_be_hurt():
+	var ellapsed = OS.get_ticks_msec() - last_damage_at
+	return ellapsed > 1000
+	

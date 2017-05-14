@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 53.1, 31.6395 )
+extents = Vector2( 56.9623, 31.6395 )
 
 [sub_resource type="SampleLibrary" id=2]
 
@@ -35,8 +35,8 @@ power = 1.8
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 
-transform/pos = Vector2( -0.493673, 6.54391 )
-transform/scale = Vector2( 1.62999, 0.913163 )
+transform/pos = Vector2( -1.06392, 2.21499 )
+transform/scale = Vector2( 1.85687, 1.04844 )
 enabled = true
 cast_to = Vector2( 0, -15 )
 layer_mask = 1

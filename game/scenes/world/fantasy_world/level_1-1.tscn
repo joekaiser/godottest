@@ -37,6 +37,7 @@ editor/display_folded = true
 
 [node name="player" parent="." instance=ExtResource( 3 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 704.608, 1360.1 )
 limit_right = 6360
 limit_up = -10000
@@ -234,9 +235,9 @@ autoplay = "Platform1"
 
 [node name="enemies" type="Node" parent="."]
 
-[node name="node" parent="enemies" instance=ExtResource( 8 )]
+[node name="enemy" parent="enemies" instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 1646.09, 1422.63 )
+transform/pos = Vector2( 877.264, 1327.63 )
 
 [node name="mushrooms" type="Node" parent="."]
 

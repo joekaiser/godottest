@@ -1,73 +1,121 @@
 [gd_scene load_steps=37 format=1]
 
-[ext_resource path="res://scenes/enemies/enemy_root.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_000.png" type="Texture" id=2]
-[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_001.png" type="Texture" id=3]
-[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_002.png" type="Texture" id=4]
-[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_003.png" type="Texture" id=5]
-[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_004.png" type="Texture" id=6]
-[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_005.png" type="Texture" id=7]
-[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_006.png" type="Texture" id=8]
-[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_007.png" type="Texture" id=9]
-[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_008.png" type="Texture" id=10]
-[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_009.png" type="Texture" id=11]
-[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_010.png" type="Texture" id=12]
-[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_011.png" type="Texture" id=13]
-[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_012.png" type="Texture" id=14]
-[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_013.png" type="Texture" id=15]
-[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_014.png" type="Texture" id=16]
-[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_000.png" type="Texture" id=17]
-[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_001.png" type="Texture" id=18]
-[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_002.png" type="Texture" id=19]
-[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_003.png" type="Texture" id=20]
-[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_004.png" type="Texture" id=21]
-[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_005.png" type="Texture" id=22]
-[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_006.png" type="Texture" id=23]
-[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_007.png" type="Texture" id=24]
-[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_008.png" type="Texture" id=25]
-[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_009.png" type="Texture" id=26]
-[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_010.png" type="Texture" id=27]
-[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_011.png" type="Texture" id=28]
-[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_012.png" type="Texture" id=29]
-[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_013.png" type="Texture" id=30]
-[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_014.png" type="Texture" id=31]
-[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_015.png" type="Texture" id=32]
-[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_016.png" type="Texture" id=33]
-[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_017.png" type="Texture" id=34]
-
-[sub_resource type="SpriteFrames" id=1]
-
-animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), null ],
-"loop": false,
-"name": "dying",
-"speed": 20.0
-}, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ) ],
-"loop": true,
-"name": "walk",
-"speed": 20.01
-} ]
+[ext_resource path="res://scenes/enemies/land_monster_1/land_monster_1.gd" type="Script" id=1]
+[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_000.png" type="Texture" id=2]
+[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_001.png" type="Texture" id=3]
+[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_002.png" type="Texture" id=4]
+[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_003.png" type="Texture" id=5]
+[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_004.png" type="Texture" id=6]
+[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_005.png" type="Texture" id=7]
+[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_006.png" type="Texture" id=8]
+[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_007.png" type="Texture" id=9]
+[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_008.png" type="Texture" id=10]
+[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_009.png" type="Texture" id=11]
+[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_010.png" type="Texture" id=12]
+[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_011.png" type="Texture" id=13]
+[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_012.png" type="Texture" id=14]
+[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_013.png" type="Texture" id=15]
+[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_014.png" type="Texture" id=16]
+[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_015.png" type="Texture" id=17]
+[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_016.png" type="Texture" id=18]
+[ext_resource path="res://scenes/enemies/land_monster_1/walking/Walking_017.png" type="Texture" id=19]
+[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_000.png" type="Texture" id=20]
+[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_001.png" type="Texture" id=21]
+[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_002.png" type="Texture" id=22]
+[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_003.png" type="Texture" id=23]
+[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_004.png" type="Texture" id=24]
+[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_005.png" type="Texture" id=25]
+[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_006.png" type="Texture" id=26]
+[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_007.png" type="Texture" id=27]
+[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_008.png" type="Texture" id=28]
+[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_009.png" type="Texture" id=29]
+[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_010.png" type="Texture" id=30]
+[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_011.png" type="Texture" id=31]
+[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_012.png" type="Texture" id=32]
+[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_013.png" type="Texture" id=33]
+[ext_resource path="res://scenes/enemies/land_monster_1/dying/Dying_014.png" type="Texture" id=34]
 
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 29.4733
+radius = 28.9878
 
-[node name="node" instance=ExtResource( 1 )]
+[sub_resource type="SpriteFrames" id=1]
 
-mode = 1
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "walk",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), null ],
+"loop": false,
+"name": "dying",
+"speed": 20.0
+} ]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -1.50249, 2.14641 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 2
+mass = 1.0
+friction = 0.0
+bounce = 0.0
+gravity_scale = 10.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+script/script = ExtResource( 1 )
+
+[node name="enabler" type="VisibilityEnabler2D" parent="."]
+
+rect = Rect2( -10, -10, 20, 20 )
+enabler/pause_animations = true
+enabler/freeze_bodies = true
+enabler/pause_particles = true
+enabler/pause_animated_sprites = true
+enabler/process_parent = false
+enabler/fixed_process_parent = false
 
 [node name="sprite" type="AnimatedSprite" parent="."]
 
 frames = SubResource( 1 )
 animation = "walk"
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( -1.28156, 1.42397 )
+transform/pos = Vector2( -1.50249, 2.14641 )
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
+
+[node name="raycast_left" type="RayCast2D" parent="."]
+
+transform/pos = Vector2( -31.9813, 0.21463 )
+enabled = false
+cast_to = Vector2( 0, 50 )
+layer_mask = 1
+type_mask = 15
+
+[node name="raycast_right" type="RayCast2D" parent="."]
+
+transform/pos = Vector2( 31.9813, -1.52588e-05 )
+enabled = false
+cast_to = Vector2( 0, 50 )
+layer_mask = 1
+type_mask = 15
 
 
