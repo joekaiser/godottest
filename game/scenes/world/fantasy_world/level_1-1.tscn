@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://scenes/world/level_root.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/world/fantasy_world/map_1-1.scn" type="PackedScene" id=2]
@@ -8,7 +8,8 @@
 [ext_resource path="res://scenes/carrot/carrot.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/moving_platforms/platform1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/enemies/land_monster_1/land_monster_1.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/mushroom/mushroom.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/enemies/land_monster_2/land_monster_2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/mushroom/mushroom.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 
@@ -41,7 +42,7 @@ editor/display_folded = true
 transform/pos = Vector2( 704.608, 1360.1 )
 limit_right = 6360
 limit_up = -10000
-limit_down = 10000
+die_at_Y = 2500
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 
@@ -87,8 +88,6 @@ stream/buffering_ms = 500
 
 [node name="carrots" type="Node" parent="."]
 
-editor/display_folded = true
-
 [node name="carrot" parent="carrots" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 1124.03, 1488.14 )
@@ -119,7 +118,7 @@ transform/pos = Vector2( 1174.03, 1438.14 )
 
 [node name="carrot7" parent="carrots" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 2115.85, 1541.72 )
+transform/pos = Vector2( 2142.85, 1541.72 )
 
 [node name="carrot9" parent="carrots" instance=ExtResource( 6 )]
 
@@ -212,7 +211,7 @@ transform/pos = Vector2( 4819.72, 489.607 )
 
 [node name="carrot8" parent="carrots" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 2497.84, 1544.71 )
+transform/pos = Vector2( 2532.84, 1546.71 )
 
 [node name="platforms" type="Node" parent="."]
 
@@ -239,9 +238,21 @@ autoplay = "Platform1"
 
 transform/pos = Vector2( 1670.79, 1560.96 )
 
+[node name="enemy2" parent="enemies" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 4416.05, 1232.68 )
+
+[node name="enemy3" parent="enemies" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 5592.23, 599.163 )
+
+[node name="RigidBody2D" parent="enemies" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 3503.55, 1570.07 )
+
 [node name="mushrooms" type="Node" parent="."]
 
-[node name="mushroom" parent="mushrooms" instance=ExtResource( 9 )]
+[node name="mushroom" parent="mushrooms" instance=ExtResource( 10 )]
 
 transform/pos = Vector2( 3590.46, 1561.55 )
 transform/scale = Vector2( 0.6, 0.6 )

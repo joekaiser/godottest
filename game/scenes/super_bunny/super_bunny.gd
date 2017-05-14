@@ -3,7 +3,7 @@ extends KinematicBody2D
 export var limit_left=0
 export var limit_right = 100000
 export var limit_up = -100000
-export var limit_down = 100000
+#export var limit_down = 100000
 export var die_at_Y=100000
 
 
@@ -22,6 +22,7 @@ var jump_count=0
 var airborn_time=0
 var is_dead = false
 var last_damage_at=0
+var health=3
 
 func _ready():
 	set_process_input(true)
@@ -36,23 +37,28 @@ func _input(event):
 		jump()
 
 func _fixed_process(delta):
+	
+	if health == 0:
+		start_death()
+	
 	var move_left = Input.is_action_pressed("ui_left")
 	var move_right = Input.is_action_pressed("ui_right")
 	var floor_velocity = Vector2()
 	var found_floor=false
 	velocity.y += delta * GRAVITY
 
-	if move_left:
-		velocity.x = -WALK_SPEED
-		sprite.set_flip_h(true)
-		play_animation("walk")
-	elif move_right:
-		velocity.x = WALK_SPEED
-		sprite.set_flip_h(false)
-		play_animation("walk")
-	else:
-		velocity.x = 0
-		play_animation("idle")
+	if !get_is_dead():
+		if move_left:
+			velocity.x = -WALK_SPEED
+			sprite.set_flip_h(true)
+			play_animation("walk")
+		elif move_right:
+			velocity.x = WALK_SPEED
+			sprite.set_flip_h(false)
+			play_animation("walk")
+		else:
+			velocity.x = 0
+			play_animation("idle")
 	
 	var motion = velocity * delta
 	if motion.y>TERMINAL_VELOCITY:
@@ -107,23 +113,38 @@ func constrain_pos():
 	if pos.y < limit_up:
 		pos.y = limit_up
 		set_pos(pos)
-	if pos.y > limit_down:
-		pos.y = limit_down
-		set_pos(pos)
+	if pos.y > die_at_Y:
+		die()
+	
 		
 func die():
+	queue_free()
+	Gamestate.reload_current_scene()
+	
+func start_death():
+	if is_dead:
+		return
 	is_dead = true
+	anim.stop_all()
+	anim.play("death")
+	sfx.play("player_death")	
+	sprite.play("dying")
+	
 	
 func get_is_dead():
 	return is_dead
 	
 func hurt():
+	
 	if can_be_hurt():
+		health -=1
 		last_damage_at = OS.get_ticks_msec()
 		sfx.play("player_hurt")
 		anim.play("hurt")
 	
 func can_be_hurt():
+	if is_dead:
+		return false
 	var ellapsed = OS.get_ticks_msec() - last_damage_at
-	return ellapsed > 1000
+	return  ellapsed > 1000
 	

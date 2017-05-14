@@ -2,7 +2,7 @@ extends RigidBody2D
 
 const STATE_WALKING = 0
 const STATE_DYING = 1
-const WALK_SPEED = 85
+const WALK_SPEED = 100
 
 var state = STATE_WALKING
 var direction = -1
@@ -27,7 +27,6 @@ func on_enabler_exit():
 	pass
 	
 func die():
-	print ('death')
 	queue_free()
 
 func _integrate_forces(s):
@@ -70,12 +69,12 @@ func _integrate_forces(s):
 			sprite.set_flip_h(direction==-1)
 		if rc_back.is_colliding() && rc_back.get_collider() extends player_class:
 			rc_back.get_collider().hurt()
-		#if direction < 0 and not rc_left.is_colliding() and rc_right.is_colliding():
-			#direction = -direction
-			#sprite.set_flip_h(direction==-1)
-		#elif direction > 0 and not rc_right.is_colliding() and rc_left.is_colliding():
-			#direction = -direction
-			#sprite.set_flip_h(direction==-1)
+		if direction < 0 and not rc_left.is_colliding() and rc_right.is_colliding():
+			direction = -direction
+			sprite.set_flip_h(direction==-1)
+		elif direction > 0 and not rc_right.is_colliding() and rc_left.is_colliding():
+			direction = -direction
+			sprite.set_flip_h(direction==-1)
 		
 		lv.x = direction*WALK_SPEED
 	

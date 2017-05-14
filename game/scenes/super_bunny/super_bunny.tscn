@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=1]
+[gd_scene load_steps=63 format=1]
 
 [ext_resource path="res://scenes/super_bunny/super_bunny.gd" type="Script" id=1]
 [ext_resource path="res://scenes/super_bunny/Idle/Idle_000.png" type="Texture" id=2]
@@ -31,16 +31,32 @@
 [ext_resource path="res://scenes/super_bunny/Running/Running_015.png" type="Texture" id=29]
 [ext_resource path="res://scenes/super_bunny/Running/Running_016.png" type="Texture" id=30]
 [ext_resource path="res://scenes/super_bunny/Running/Running_017.png" type="Texture" id=31]
-[ext_resource path="res://scenes/super_bunny/Falling/Falling Down_000.png" type="Texture" id=32]
-[ext_resource path="res://scenes/super_bunny/Falling/Falling Down_001.png" type="Texture" id=33]
-[ext_resource path="res://scenes/super_bunny/Falling/Falling Down_002.png" type="Texture" id=34]
-[ext_resource path="res://scenes/super_bunny/Falling/Falling Down_003.png" type="Texture" id=35]
-[ext_resource path="res://scenes/super_bunny/Falling/Falling Down_004.png" type="Texture" id=36]
-[ext_resource path="res://scenes/super_bunny/Falling/Falling Down_005.png" type="Texture" id=37]
-[ext_resource path="res://sfx/jump1.wav" type="Sample" id=38]
-[ext_resource path="res://sfx/jump2.wav" type="Sample" id=39]
-[ext_resource path="res://sfx/jump3.wav" type="Sample" id=40]
-[ext_resource path="res://sfx/player_hurt.wav" type="Sample" id=41]
+[ext_resource path="res://scenes/super_bunny/Dying/Dying_000.png" type="Texture" id=32]
+[ext_resource path="res://scenes/super_bunny/Dying/Dying_001.png" type="Texture" id=33]
+[ext_resource path="res://scenes/super_bunny/Dying/Dying_002.png" type="Texture" id=34]
+[ext_resource path="res://scenes/super_bunny/Dying/Dying_003.png" type="Texture" id=35]
+[ext_resource path="res://scenes/super_bunny/Dying/Dying_004.png" type="Texture" id=36]
+[ext_resource path="res://scenes/super_bunny/Dying/Dying_005.png" type="Texture" id=37]
+[ext_resource path="res://scenes/super_bunny/Dying/Dying_006.png" type="Texture" id=38]
+[ext_resource path="res://scenes/super_bunny/Dying/Dying_007.png" type="Texture" id=39]
+[ext_resource path="res://scenes/super_bunny/Dying/Dying_008.png" type="Texture" id=40]
+[ext_resource path="res://scenes/super_bunny/Dying/Dying_009.png" type="Texture" id=41]
+[ext_resource path="res://scenes/super_bunny/Dying/Dying_010.png" type="Texture" id=42]
+[ext_resource path="res://scenes/super_bunny/Dying/Dying_011.png" type="Texture" id=43]
+[ext_resource path="res://scenes/super_bunny/Dying/Dying_012.png" type="Texture" id=44]
+[ext_resource path="res://scenes/super_bunny/Dying/Dying_013.png" type="Texture" id=45]
+[ext_resource path="res://scenes/super_bunny/Dying/Dying_014.png" type="Texture" id=46]
+[ext_resource path="res://scenes/super_bunny/Falling/Falling Down_000.png" type="Texture" id=47]
+[ext_resource path="res://scenes/super_bunny/Falling/Falling Down_001.png" type="Texture" id=48]
+[ext_resource path="res://scenes/super_bunny/Falling/Falling Down_002.png" type="Texture" id=49]
+[ext_resource path="res://scenes/super_bunny/Falling/Falling Down_003.png" type="Texture" id=50]
+[ext_resource path="res://scenes/super_bunny/Falling/Falling Down_004.png" type="Texture" id=51]
+[ext_resource path="res://scenes/super_bunny/Falling/Falling Down_005.png" type="Texture" id=52]
+[ext_resource path="res://sfx/jump1.wav" type="Sample" id=53]
+[ext_resource path="res://sfx/jump2.wav" type="Sample" id=54]
+[ext_resource path="res://sfx/jump3.wav" type="Sample" id=55]
+[ext_resource path="res://sfx/player_death.wav" type="Sample" id=56]
+[ext_resource path="res://sfx/player_hurt.wav" type="Sample" id=57]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -60,7 +76,12 @@ animations = [ {
 "name": "walk",
 "speed": 20.0
 }, {
-"frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ) ],
+"frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ) ],
+"loop": false,
+"name": "dying",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ) ],
 "loop": true,
 "name": "falling",
 "speed": 8.0
@@ -72,30 +93,67 @@ samples/jump1 = {
 "db": 0.0,
 "pitch": 1.0,
 "priority": 0,
-"sample": ExtResource( 38 )
+"sample": ExtResource( 53 )
 }
 samples/jump2 = {
 "db": 0.0,
 "pitch": 1.0,
 "priority": 0,
-"sample": ExtResource( 39 )
+"sample": ExtResource( 54 )
 }
 samples/jump3 = {
 "db": 0.0,
 "pitch": 1.0,
 "priority": 0,
-"sample": ExtResource( 40 )
+"sample": ExtResource( 55 )
+}
+samples/player_death = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 56 )
 }
 samples/player_hurt = {
 "db": 0.0,
 "pitch": 1.0,
 "priority": 0,
-"sample": ExtResource( 41 )
+"sample": ExtResource( 57 )
 }
 
 [sub_resource type="Animation" id=4]
 
-resource/name = "hurt"
+resource/name = "death"
+length = 3.0
+loop = false
+step = 0.1
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 3 ),
+"transitions": FloatArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": ""
+}, {
+"args": [  ],
+"method": "die"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visibility/opacity")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 2.4, 3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+
 length = 1.0
 loop = false
 step = 0.1
@@ -123,7 +181,6 @@ script/script = ExtResource( 1 )
 limit_left = 0
 limit_right = 100000
 limit_up = -100000
-limit_down = 100000
 die_at_Y = 100000
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -161,7 +218,8 @@ default/chorus_send = 0.0
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/hurt = SubResource( 4 )
+anims/death = SubResource( 4 )
+anims/hurt = SubResource( 5 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
