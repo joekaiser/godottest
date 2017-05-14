@@ -24,6 +24,8 @@ func on_enabler_enter():
 func on_enabler_exit(): 
 	isActive = false
 
+func die():
+	queue_free()
 
 func _integrate_forces(s):
 	var lv = s.get_linear_velocity()
@@ -76,6 +78,8 @@ func _integrate_forces(s):
 	lv.x=direction*WALK_SPEED
 
 	s.set_linear_velocity(lv)
+	if get_pos().y>2500:
+		die()
 
 
 

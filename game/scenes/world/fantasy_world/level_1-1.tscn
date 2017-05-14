@@ -237,7 +237,7 @@ autoplay = "Platform1"
 
 [node name="enemy" parent="enemies" instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 877.264, 1327.63 )
+transform/pos = Vector2( 1670.79, 1560.96 )
 
 [node name="mushrooms" type="Node" parent="."]
 
