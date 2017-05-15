@@ -33,9 +33,18 @@ bounce = 0.0
 script/script = ExtResource( 1 )
 power = 1.8
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="raycast_left" type="RayCast2D" parent="."]
 
-transform/pos = Vector2( -1.06392, 2.21499 )
+transform/pos = Vector2( -21.5031, 4.25891 )
+transform/scale = Vector2( 1.85687, 1.04844 )
+enabled = true
+cast_to = Vector2( 0, -15 )
+layer_mask = 1
+type_mask = 2
+
+[node name="raycast_right" type="RayCast2D" parent="."]
+
+transform/pos = Vector2( 23.4969, 4.25891 )
 transform/scale = Vector2( 1.85687, 1.04844 )
 enabled = true
 cast_to = Vector2( 0, -15 )

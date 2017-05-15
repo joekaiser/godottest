@@ -246,7 +246,7 @@ transform/pos = Vector2( 4416.05, 1232.68 )
 
 transform/pos = Vector2( 5592.23, 599.163 )
 
-[node name="RigidBody2D" parent="enemies" instance=ExtResource( 9 )]
+[node name="enemy4" parent="enemies" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 3503.55, 1570.07 )
 

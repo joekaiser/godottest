@@ -16,7 +16,10 @@ const MAX_JUMPS = 2
 onready var sprite = get_node("AnimatedSprite")
 onready var sfx = get_node("sfx")
 onready var anim = get_node("animation")
+onready var rc_dl = get_node("raycast_downleft")
+onready var rc_dr = get_node("raycast_downright")
 
+var enemy = preload("res://EnemyRoot.gd")
 var velocity = Vector2()
 var jump_count=0
 var airborn_time=0
@@ -37,6 +40,14 @@ func _input(event):
 		jump()
 
 func _fixed_process(delta):
+	
+	var et = null
+	if rc_dl.is_colliding():
+		et = rc_dl.get_collider()
+	elif rc_dr.is_colliding():
+		et = rc_dr.get_collider()
+	if et && et extends enemy:
+		et.hurt(self)
 	
 	if health == 0:
 		start_death()
@@ -70,7 +81,9 @@ func _fixed_process(delta):
 		var n = get_collision_normal()
 		motion = n.slide(motion)
 		velocity = n.slide(velocity)
-
+		
+		
+		
 		if n == Vector2(0,-1):
 			found_floor = true
 			floor_velocity = get_collider_velocity()
