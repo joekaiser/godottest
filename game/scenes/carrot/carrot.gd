@@ -21,6 +21,7 @@ func _collect_carrot(body):
 	taken = true
 	if special:
 		owner.score +=10
+		owner.get_player().health +=1
 		sfx.play("carrot_powerup")
 	else:
 		owner.score += 1

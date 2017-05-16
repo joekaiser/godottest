@@ -27,7 +27,7 @@ var jump_count=0
 var airborn_time=0
 var is_dead = false
 var last_damage_at=0
-var health=3
+var health setget set_health,get_health
 
 var is_moving_left
 var is_moving_right
@@ -43,6 +43,7 @@ func _ready():
 	set_process_input(true)
 	set_fixed_process(true)
 	current_state = IDLE_STATE
+	health = 3
 	
 func do_idle_state(delta):
 	velocity.x=0
@@ -193,4 +194,10 @@ func can_be_hurt():
 		return false
 	var ellapsed = OS.get_ticks_msec() - last_damage_at
 	return  ellapsed > 1250
+	
+func get_health():
+	return health
+
+func set_health(value):
+	health=value
 	

@@ -33,7 +33,7 @@ tracks/0/keys = {
 [node name="level_1-1" instance=ExtResource( 1 )]
 
 script/script = ExtResource( 2 )
-score = 0
+player_class = NodePath("player")
 
 [node name="gui" parent="."]
 
