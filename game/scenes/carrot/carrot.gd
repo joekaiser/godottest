@@ -20,11 +20,11 @@ func _collect_carrot(body):
 		return
 	taken = true
 	if special:
-		owner.score +=10
+		owner.score +=50
 		owner.get_player().health +=1
 		sfx.play("carrot_powerup")
 	else:
-		owner.score += 1
+		owner.score += 20
 		sfx.play("collect_carrot")
 	
 	#remove the node

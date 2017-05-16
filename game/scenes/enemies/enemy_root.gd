@@ -4,6 +4,8 @@ const STATE_WALKING = 0
 const STATE_DYING = 1
 
 export var WALK_SPEED = 85
+export var point_value=10
+
 var state = STATE_WALKING
 var direction = -1
 var anim = ""

@@ -119,6 +119,7 @@ damp_override/linear = -1.0
 damp_override/angular = -1.0
 script/script = ExtResource( 1 )
 WALK_SPEED = 85
+point_value = 10
 
 [node name="enabler" type="VisibilityEnabler2D" parent="."]
 
