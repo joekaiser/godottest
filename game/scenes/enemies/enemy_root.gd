@@ -29,6 +29,8 @@ func die():
 func hurt(attacker):
 	if canBeHurt():
 		health -=1
+		if attacker.has_method("bounce"):
+			attacker.bounce(.8)
 		if health <=0:
 			state=STATE_DYING
 

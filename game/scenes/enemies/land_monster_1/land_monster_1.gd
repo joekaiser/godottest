@@ -1,4 +1,4 @@
-extends "res://EnemyRoot.gd"
+extends "res://scenes/enemies/enemy_root.gd"
 
 onready var sprite = get_node("sprite")
 onready var enabler = get_node("enabler")
@@ -50,12 +50,6 @@ func state_dying(s):
 	
 func animateSprite(a):
 	sprite.play(a)
-	
-func hurt(attacker):
-	if canBeHurt():
-		if attacker.has_method("bounce"):
-			attacker.bounce(.8)
-	.hurt(attacker)
 		
 
 
