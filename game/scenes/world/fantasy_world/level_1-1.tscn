@@ -1,16 +1,17 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://scenes/world/level_root.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/world/fantasy_world/map_1-1.scn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/super_bunny/super_bunny.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/world/fantasy_world/FantasyParallaxBackground.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/world/fantasy_world/music/Lively_lumpsucker.ogg" type="AudioStream" id=5]
-[ext_resource path="res://scenes/carrot/carrot.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/moving_platforms/platform1.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/enemies/land_monster_1/land_monster_1.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/enemies/land_monster_2/land_monster_2.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/mushroom/mushroom.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/star/star.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/world/fantasy_world/level_1-1.gd" type="Script" id=2]
+[ext_resource path="res://scenes/world/fantasy_world/map_1-1.scn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/super_bunny/super_bunny.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/world/fantasy_world/FantasyParallaxBackground.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/world/fantasy_world/music/Lively_lumpsucker.ogg" type="AudioStream" id=6]
+[ext_resource path="res://scenes/carrot/carrot.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/moving_platforms/platform1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/enemies/land_monster_1/land_monster_1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/enemies/land_monster_2/land_monster_2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/mushroom/mushroom.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/star/star.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Animation" id=1]
 
@@ -31,13 +32,16 @@ tracks/0/keys = {
 
 [node name="level_1-1" instance=ExtResource( 1 )]
 
+script/script = ExtResource( 2 )
+score = 0
+
 [node name="gui" parent="."]
 
 editor/display_folded = true
 
-[node name="map_1-1" parent="." instance=ExtResource( 2 )]
+[node name="map_1-1" parent="." instance=ExtResource( 3 )]
 
-[node name="player" parent="." instance=ExtResource( 3 )]
+[node name="player" parent="." instance=ExtResource( 4 )]
 
 editor/display_folded = true
 transform/pos = Vector2( 704.608, 1360.1 )
@@ -64,7 +68,7 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 
-[node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
+[node name="ParallaxBackground" parent="." instance=ExtResource( 5 )]
 
 [node name="clouds" parent="ParallaxBackground"]
 
@@ -77,7 +81,7 @@ transform/pos = Vector2( 0, 338.341 )
 
 [node name="music" type="StreamPlayer" parent="."]
 
-stream/stream = ExtResource( 5 )
+stream/stream = ExtResource( 6 )
 stream/play = false
 stream/loop = true
 stream/volume_db = -10.0
@@ -90,128 +94,128 @@ stream/buffering_ms = 500
 
 editor/display_folded = true
 
-[node name="carrot" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 1124.03, 1488.14 )
 
-[node name="carrot1" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot1" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 1224.03, 1488.14 )
 
-[node name="carrot2" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot2" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 1324.03, 1488.14 )
 
-[node name="carrot3" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot3" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 1424.03, 1488.14 )
 
-[node name="carrot4" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot4" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 1374.03, 1438.14 )
 
-[node name="carrot5" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot5" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 1274.03, 1438.14 )
 
-[node name="carrot6" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot6" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 1174.03, 1438.14 )
 
-[node name="carrot7" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot7" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 2142.85, 1541.72 )
 
-[node name="carrot9" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot9" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 2880.44, 1548.9 )
 
-[node name="carrot10" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot10" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 3380.38, 1478.85 )
 special = true
 
-[node name="carrot11" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot11" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 3353.44, 1022.61 )
 
-[node name="carrot25" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot25" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 3592.21, 1479.39 )
 
-[node name="carrot26" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot26" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 3592.21, 1429.39 )
 
-[node name="carrot27" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot27" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 3592.21, 1379.39 )
 
-[node name="carrot28" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot28" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 3592.21, 1329.39 )
 
-[node name="carrot29" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot29" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 3592.21, 1279.39 )
 
-[node name="carrot30" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot30" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 3592.21, 1229.39 )
 
-[node name="carrot12" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot12" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 3353.44, 962.611 )
 
-[node name="carrot13" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot13" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 3353.44, 902.611 )
 
-[node name="carrot14" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot14" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 3353.44, 842.611 )
 
-[node name="carrot15" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot15" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 6177.03, 1184.21 )
 
-[node name="carrot16" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot16" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 6107.03, 1184.21 )
 
-[node name="carrot17" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot17" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 6037.03, 1184.21 )
 
-[node name="carrot18" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot18" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 5967.03, 1184.21 )
 
-[node name="carrot19" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot19" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 5897.03, 1184.21 )
 
-[node name="carrot20" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot20" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 5827.03, 1184.21 )
 
-[node name="carrot21" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot21" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 5757.03, 1184.21 )
 
-[node name="carrot22" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot22" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 4704.29, 588.457 )
 
-[node name="carrot23" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot23" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 4760.68, 541.354 )
 
-[node name="carrot24" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot24" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 4819.72, 489.607 )
 
-[node name="carrot8" parent="carrots" instance=ExtResource( 6 )]
+[node name="carrot8" parent="carrots" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 2532.84, 1546.71 )
 
@@ -219,7 +223,7 @@ transform/pos = Vector2( 2532.84, 1546.71 )
 
 editor/display_folded = true
 
-[node name="platform" parent="platforms" instance=ExtResource( 7 )]
+[node name="platform" parent="platforms" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 4366.64, 692.162 )
 
@@ -238,27 +242,27 @@ autoplay = "Platform1"
 
 editor/display_folded = true
 
-[node name="enemy" parent="enemies" instance=ExtResource( 8 )]
+[node name="enemy" parent="enemies" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 1670.79, 1560.96 )
 
-[node name="enemy2" parent="enemies" instance=ExtResource( 8 )]
+[node name="enemy2" parent="enemies" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 4416.05, 1232.68 )
 
-[node name="enemy3" parent="enemies" instance=ExtResource( 8 )]
+[node name="enemy3" parent="enemies" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 5592.23, 599.163 )
 
-[node name="enemy5" parent="enemies" instance=ExtResource( 8 )]
+[node name="enemy5" parent="enemies" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 5405.23, 597.163 )
 
-[node name="enemy6" parent="enemies" instance=ExtResource( 8 )]
+[node name="enemy6" parent="enemies" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 5216.23, 599.163 )
 
-[node name="enemy4" parent="enemies" instance=ExtResource( 9 )]
+[node name="enemy4" parent="enemies" instance=ExtResource( 10 )]
 
 transform/pos = Vector2( 3503.55, 1570.07 )
 
@@ -266,12 +270,12 @@ transform/pos = Vector2( 3503.55, 1570.07 )
 
 editor/display_folded = true
 
-[node name="mushroom" parent="mushrooms" instance=ExtResource( 10 )]
+[node name="mushroom" parent="mushrooms" instance=ExtResource( 11 )]
 
 transform/pos = Vector2( 3590.46, 1561.55 )
 transform/scale = Vector2( 0.6, 0.6 )
 
-[node name="star" parent="." instance=ExtResource( 11 )]
+[node name="star" parent="." instance=ExtResource( 12 )]
 
 transform/pos = Vector2( 6070.19, 460.082 )
 

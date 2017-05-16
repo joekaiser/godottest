@@ -1,13 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=3 format=1]
 
-[ext_resource path="res://scenes/world/level_root.gd" type="Script" id=1]
-[ext_resource path="res://scenes/carrot/carrot_1.png" type="Texture" id=2]
-[ext_resource path="res://gui/32-white-shadow.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://scenes/carrot/carrot_1.png" type="Texture" id=1]
+[ext_resource path="res://gui/32-white-shadow.fnt" type="BitmapFont" id=2]
 
 [node name="level_root" type="Node"]
-
-script/script = ExtResource( 1 )
-score = 0
 
 [node name="gui" type="CanvasLayer" parent="."]
 
@@ -19,7 +15,7 @@ scale = Vector2( 1, 1 )
 [node name="icon_carrot" type="Sprite" parent="gui"]
 
 transform/pos = Vector2( 10, 10 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 
 [node name="lbl_score" type="Label" parent="gui"]
@@ -32,7 +28,7 @@ margin/left = 50.0
 margin/top = 10.0
 margin/right = 114.0
 margin/bottom = 45.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 2 )
 text = "0"
 percent_visible = 1.0
 lines_skipped = 0

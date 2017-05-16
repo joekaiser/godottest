@@ -14,4 +14,5 @@ func _fixed_process(delta):
 		last_score = score;
 		
 func level_complete():
+	Logger.warn("using the default level_complete")
 	Gamestate.reload_current_scene()
