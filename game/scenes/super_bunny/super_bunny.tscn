@@ -181,7 +181,7 @@ script/script = ExtResource( 1 )
 limit_left = 0
 limit_right = 100000
 limit_up = -100000
-die_at_Y = 100000
+limit_down = 100000
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 

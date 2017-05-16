@@ -99,7 +99,6 @@ autoplay = ""
 
 [node name="Area2D" type="Area2D" parent="."]
 
-editor/display_folded = true
 input/pickable = true
 shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 0.707107, 0.707107, -0.707107, 0.707107, -1.3986, 1.22378 )

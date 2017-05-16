@@ -3,9 +3,7 @@ extends KinematicBody2D
 export var limit_left=0
 export var limit_right = 100000
 export var limit_up = -100000
-#export var limit_down = 100000
-export var die_at_Y=100000
-
+export var limit_down = 100000
 
 const WALK_SPEED = 350
 const GRAVITY = 2500;
@@ -126,8 +124,9 @@ func constrain_pos():
 	if pos.y < limit_up:
 		pos.y = limit_up
 		set_pos(pos)
-	if pos.y > die_at_Y:
-		die()
+	if pos.y > limit_down:
+		pos.y = limit_down
+		set_pos(pos)
 	
 		
 func die():

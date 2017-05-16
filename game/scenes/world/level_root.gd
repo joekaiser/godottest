@@ -12,3 +12,6 @@ func _fixed_process(delta):
 	if last_score != score:
 		score_text.set_text(str(score))
 		last_score = score;
+		
+func level_complete():
+	Gamestate.reload_current_scene()
