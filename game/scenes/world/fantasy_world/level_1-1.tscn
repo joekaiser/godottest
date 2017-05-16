@@ -44,21 +44,19 @@ editor/display_folded = true
 
 [node name="player" parent="." instance=ExtResource( 4 )]
 
-editor/display_folded = true
 transform/pos = Vector2( 704.608, 1360.1 )
 limit_right = 6360
 limit_up = -10000
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 
-transform/pos = Vector2( -6.18164, -3.09082 )
 anchor_mode = 1
 rotating = false
 current = true
 zoom = Vector2( 1, 1 )
 limit/left = 0
 limit/top = -10000000
-limit/right = 10000000
+limit/right = 6400
 limit/bottom = 1900
 drag_margin/h_enabled = true
 drag_margin/v_enabled = true
@@ -131,9 +129,13 @@ transform/pos = Vector2( 2142.85, 1541.72 )
 
 transform/pos = Vector2( 2880.44, 1548.9 )
 
+[node name="carrot31" parent="carrots" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 2980.44, 1548.9 )
+
 [node name="carrot10" parent="carrots" instance=ExtResource( 7 )]
 
-transform/pos = Vector2( 3380.38, 1478.85 )
+transform/pos = Vector2( 3353.44, 782 )
 special = true
 
 [node name="carrot11" parent="carrots" instance=ExtResource( 7 )]
