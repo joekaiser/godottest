@@ -110,7 +110,7 @@ func _fixed_process(delta):
 		
 	damage_enemies(delta)
 	
-	if health == 0:
+	if health <= 0:
 		next_state = DYING_STATE
 	
 	velocity.y += delta * GRAVITY
@@ -184,7 +184,7 @@ func die():
 	
 func hurt():
 	if can_be_hurt():
-		health -=1
+		health = max(health-1,0)
 		last_damage_at = OS.get_ticks_msec()
 		sfx.play("player_hurt")
 		anim.play("hurt")
@@ -204,7 +204,7 @@ func set_health(value):
 func kill():
 	if is_dead:
 		return
-	health =0
+	health = 0
 	hurt()
 	
 	

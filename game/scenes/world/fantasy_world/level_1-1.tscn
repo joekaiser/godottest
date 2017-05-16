@@ -2,10 +2,10 @@
 
 [ext_resource path="res://scenes/world/level_root.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/world/fantasy_world/level_1-1.gd" type="Script" id=2]
-[ext_resource path="res://scenes/world/fantasy_world/map_1-1.scn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/super_bunny/super_bunny.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/world/fantasy_world/FantasyParallaxBackground.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/world/fantasy_world/music/Lively_lumpsucker.ogg" type="AudioStream" id=6]
+[ext_resource path="res://scenes/world/fantasy_world/music/Whimsical-Popsicle.ogg" type="AudioStream" id=3]
+[ext_resource path="res://scenes/world/fantasy_world/map_1-1.scn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/super_bunny/super_bunny.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/world/fantasy_world/FantasyParallaxBackground.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/carrot/carrot.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/moving_platforms/platform1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/enemies/land_monster_1/land_monster_1.tscn" type="PackedScene" id=9]
@@ -40,9 +40,13 @@ death_at_Y = 3000
 
 editor/display_folded = true
 
-[node name="map_1-1" parent="." instance=ExtResource( 3 )]
+[node name="music_global" parent="."]
 
-[node name="player" parent="." instance=ExtResource( 4 )]
+stream/stream = ExtResource( 3 )
+
+[node name="map_1-1" parent="." instance=ExtResource( 4 )]
+
+[node name="player" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 704.608, 1360.1 )
 limit_right = 6360
@@ -67,7 +71,7 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 
-[node name="ParallaxBackground" parent="." instance=ExtResource( 5 )]
+[node name="ParallaxBackground" parent="." instance=ExtResource( 6 )]
 
 [node name="clouds" parent="ParallaxBackground"]
 
@@ -78,18 +82,9 @@ transform/pos = Vector2( 0.00012207, 231.712 )
 
 transform/pos = Vector2( 0, 338.341 )
 
-[node name="music" type="StreamPlayer" parent="."]
-
-stream/stream = ExtResource( 6 )
-stream/play = false
-stream/loop = true
-stream/volume_db = -10.0
-stream/autoplay = true
-stream/paused = false
-stream/loop_restart_time = 0.0
-stream/buffering_ms = 500
-
 [node name="carrots" type="Node" parent="."]
+
+editor/display_folded = true
 
 [node name="carrot" parent="carrots" instance=ExtResource( 7 )]
 
