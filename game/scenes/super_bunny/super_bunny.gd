@@ -50,7 +50,7 @@ func do_idle_state(delta):
 	next_anim="idle"
 
 func do_walking_state(delta):
-	if !get_is_dead():
+	if !is_dead:
 		next_anim="walk"
 		
 		if is_moving_left:
@@ -70,6 +70,8 @@ func do_dying_state(delta):
 	next_anim="dying"
 
 func _input(event):
+	if is_dead:
+		return
 	if Input.is_action_pressed("ui_left"):
 		is_moving_left = true
 		is_moving_right = false
@@ -82,7 +84,7 @@ func _input(event):
 		is_moving_left = false
 		is_moving_right = false
 		next_state = IDLE_STATE
-		
+
 	if event.is_action_pressed("ui_accept") and jump_count < MAX_JUMPS:
 		jump()
 
@@ -178,9 +180,7 @@ func constrain_pos():
 func die():
 	queue_free()
 	Gamestate.reload_current_scene()
-	
-func get_is_dead():
-	return is_dead
+
 	
 func hurt():
 	if can_be_hurt():
