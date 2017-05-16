@@ -34,6 +34,7 @@ tracks/0/keys = {
 
 script/script = ExtResource( 2 )
 player_class = NodePath("player")
+death_at_Y = 3000
 
 [node name="gui" parent="."]
 

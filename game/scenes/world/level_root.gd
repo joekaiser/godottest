@@ -1,8 +1,9 @@
 extends Node
 
 export(NodePath) var player_class
-var score setget set_score,get_score
+export var death_at_Y = 100000
 
+var score setget set_score,get_score
 var last_score=0
 var last_health = 0
 var player
@@ -25,6 +26,9 @@ func _fixed_process(delta):
 	if last_score != score:
 		score_text.set_text(str(score))
 		last_score = score;
+		
+	if player.get_pos().y > death_at_Y:
+		player.kill()
 		
 func level_complete():
 	Logger.warn("using the default level_complete")

@@ -201,3 +201,10 @@ func get_health():
 func set_health(value):
 	health=value
 	
+func kill():
+	if is_dead:
+		return
+	health =0
+	hurt()
+	
+	
