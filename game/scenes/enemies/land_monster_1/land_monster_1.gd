@@ -2,8 +2,6 @@ extends "res://scenes/enemies/enemy_root.gd"
 
 onready var sprite = get_node("sprite")
 onready var enabler = get_node("enabler")
-onready var rc_left = get_node("raycast_left")
-onready var rc_right = get_node("raycast_right")
 onready var rc_back =get_node("raycast_back")
 onready var anim_player = get_node("anim")
 onready var sfx = get_node("sfx")

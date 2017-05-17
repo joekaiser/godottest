@@ -57,8 +57,7 @@ func do_player_bounds_check():
 		player.kill()
 		
 func level_complete():
-	Logger.warn("using the default level_complete")
-	Gamestate.reload_current_scene()
+  	self.add_child(Gamestate.get_level_complete_scene())
 
 func on_timer_done():
 	Logger.info("timer finished. implement gui")

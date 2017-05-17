@@ -145,22 +145,6 @@ shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
-[node name="raycast_left" type="RayCast2D" parent="."]
-
-transform/pos = Vector2( -46.317, 0.564278 )
-enabled = true
-cast_to = Vector2( 0, 50 )
-layer_mask = 1
-type_mask = 15
-
-[node name="raycast_right" type="RayCast2D" parent="."]
-
-transform/pos = Vector2( 46.8415, 0.349632 )
-enabled = true
-cast_to = Vector2( 0, 50 )
-layer_mask = 1
-type_mask = 15
-
 [node name="raycast_back" type="RayCast2D" parent="."]
 
 transform/pos = Vector2( -4.85303, 0 )
