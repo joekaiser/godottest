@@ -13,7 +13,7 @@
 [ext_resource path="res://scenes/mushroom/mushroom.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/star/star.tscn" type="PackedScene" id=12]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 
 length = 12.0
 loop = true
@@ -219,7 +219,7 @@ transform/pos = Vector2( 4366.64, 692.162 )
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/Platform1 = SubResource( 2 )
+anims/Platform1 = SubResource( 1 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]

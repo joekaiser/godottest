@@ -18,25 +18,27 @@ func _ready():
 
 	
 func goto_scene(scene):
-	current_scene_path = scene
+	Logger.info("going to "+ scene)
 	current_scene.queue_free()
-	var s = load(scene)
+	get_tree().set_pause(false)
+	current_scene_path = scene
+	var s = load(current_scene_path)
 	current_scene = s.instance()
 	get_tree().get_root().add_child(current_scene)
 	
 func next_level():
+	level_index +=1
 	if level_index < levels.size():
-		level_index +=1
-	goto_scene(levels[level_index])
+		goto_scene(levels[level_index])
+	else:
+		Logger.error("next level out of bounds")
 	
 func reload_current_scene():
-	current_scene.queue_free()
-	var s = load(current_scene_path)
-	current_scene = s.instance()
-	get_tree().get_root().add_child(current_scene)
+	goto_scene(current_scene_path)
 
 func init_level_queue():
 	Logger.verbose("filling level queue")
+	levels.push_back("res://scenes/world/fantasy_world/level_1-1.tscn")
 	levels.push_back("res://scenes/world/fantasy_world/level_1-1.tscn")
 
 func get_level_complete_scene():
