@@ -1,7 +1,39 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://scenes/level_complete/level_complete.gd" type="Script" id=1]
 [ext_resource path="res://scenes/level_complete/LevelComplete.png" type="Texture" id=2]
+[ext_resource path="res://gui/Icon - Time.png" type="Texture" id=3]
+[ext_resource path="res://gui/32-white-shadow.fnt" type="BitmapFont" id=4]
+[ext_resource path="res://gui/Heart.png" type="Texture" id=5]
+[ext_resource path="res://gui/Score.png" type="Texture" id=6]
+[ext_resource path="res://gui/64-white.fnt" type="BitmapFont" id=7]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "pulse_score"
+length = 2.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("lbl_score:rect/pos")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 1, 2 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 430, 410 ), Vector2( 510, 410 ), Vector2( 430, 410 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("lbl_score:rect/scale")
+tracks/1/interp = 2
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 1, 2 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.6, 0.6 ), Vector2( 1, 1 ) ]
+}
 
 [node name="level_complete" type="CanvasLayer"]
 
@@ -14,9 +46,112 @@ script/script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 
-transform/pos = Vector2( 353.41, -0.00012207 )
+transform/pos = Vector2( 630, 360 )
+transform/rot = 0.4
 transform/scale = Vector2( 0.833939, 0.827416 )
 texture = ExtResource( 2 )
-centered = false
+
+[node name="icon_clock" type="Sprite" parent="."]
+
+transform/pos = Vector2( 450, 240 )
+texture = ExtResource( 3 )
+
+[node name="lbl_time" type="Label" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 490.0
+margin/top = 220.0
+margin/right = 694.0
+margin/bottom = 465.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.539062, 0.539062, 0.539062, 1 )
+text = "100 x 10"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="icon_heart" type="Sprite" parent="."]
+
+transform/pos = Vector2( 720, 240 )
+texture = ExtResource( 5 )
+
+[node name="lbl_health" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 750.0
+margin/top = 220.0
+margin/right = 828.0
+margin/bottom = 255.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.539062, 0.539062, 0.539062, 1 )
+text = "5 x 10"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="icon_score" type="Sprite" parent="."]
+
+transform/pos = Vector2( 630, 350 )
+texture = ExtResource( 6 )
+
+[node name="lbl_score" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 430.0
+margin/top = 410.0
+margin/right = 831.0
+margin/bottom = 473.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.539062, 0.539062, 0.539062, 1 )
+text = "3 x 10"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="lbl_meta" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 430.0
+margin/top = 570.0
+margin/right = 831.0
+margin/bottom = 613.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.539062, 0.539062, 0.539062, 1 )
+text = "Press \"Jump\" to continue"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/pulse_score = SubResource( 1 )
+playback/active = true
+playback/speed = 0.7
+blend_times = [  ]
+autoplay = "pulse_score"
 
 

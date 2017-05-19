@@ -5,9 +5,10 @@ export(NodePath) var player_class
 export var death_at_Y = 100000
 
 #state
-var score = 0 setget set_score,get_score
+var score = 0
 var last_score = 0
 var last_health = 0
+var last_lives = 0
 var last_timer=0
 var time_warning_given = false
 
@@ -17,6 +18,7 @@ onready var timer = get_node("Timer")
 onready var time_text = get_node("gui").get_node("lbl_time")
 onready var score_text = get_node("gui").get_node("lbl_score")
 onready var health_text = get_node("gui").get_node("lbl_health")
+onready var lives_text = get_node("gui").get_node("lbl_lives")
 onready var sfx = get_node("sfx_global")
 onready var anim = get_node("AnimationPlayer")
 
@@ -29,6 +31,7 @@ func _fixed_process(delta):
 	pass_time()
 	print_helath()	
 	print_score()
+	print_lives()
 	do_player_bounds_check()
 		
 func print_helath():
@@ -39,7 +42,12 @@ func print_helath():
 func print_score():
 	if last_score != score:
 		score_text.set_text(str(score))
-		last_score = score;
+		last_score = score
+
+func print_lives():
+	if last_lives != Gamestate.player_lives:
+		last_lives = Gamestate.player_lives
+		lives_text.set_text(str(last_lives))
 	
 func pass_time():
 	if timer:
@@ -57,17 +65,21 @@ func do_player_bounds_check():
 		player.kill()
 		
 func level_complete():
-  	self.add_child(Gamestate.get_level_complete_scene())
+	var level_complete_instance = Gamestate.get_level_complete_scene()
+	level_complete_instance.init(last_health,last_timer,last_score)
+	var level_score = level_complete_instance.get_final_score()
+	Gamestate.player_score += level_score
+	self.add_child(level_complete_instance)
 
 func on_timer_done():
 	Logger.info("timer finished. implement gui")
 	player.kill()
 	
-func get_score():
-	return score
+# func get_score():
+# 	return score
 
-func set_score(value):
-	score=value	
+# func set_score(value):
+# 	score=value	
 	
 func get_player():
 	return player

@@ -1,13 +1,13 @@
 extends Node
 
-var level_complete_screen = preload("res://scenes/level_complete/level_complete.tscn")
+var level_complete_scene = preload("res://scenes/level_complete/level_complete.tscn")
 
-var player_lives=3
+var player_lives =3 setget set_player_lives, get_player_lives 
 var player_score = 0
 
 var current_scene
 var current_scene_path
-var level_index = 0;
+var level_index = 0
 var levels = StringArray()
 
 func _ready():
@@ -42,5 +42,20 @@ func init_level_queue():
 	levels.push_back("res://scenes/world/fantasy_world/level_1-1.tscn")
 
 func get_level_complete_scene():
-	return level_complete_screen.instance()
+	return level_complete_scene.instance()
+
+func gameover():
+	Logger.warn("game over state not implemented")
+	level_index =-1 #hack
+	player_lives=3
+	next_level()
+
+func set_player_lives(value):
+	player_lives = value
+	if player_lives <=0: 
+		gameover()
+	
+
+func get_player_lives():
+	return player_lives
 	

@@ -179,6 +179,7 @@ func constrain_pos():
 		
 func die():
 	queue_free()
+	Gamestate.player_lives -=1
 	Gamestate.reload_current_scene()
 
 	

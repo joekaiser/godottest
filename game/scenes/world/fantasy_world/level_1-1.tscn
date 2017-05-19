@@ -35,6 +35,10 @@ script/script = ExtResource( 2 )
 player_class = NodePath("player")
 death_at_Y = 3000
 
+[node name="gui" parent="."]
+
+editor/display_folded = true
+
 [node name="music_global" parent="."]
 
 stream/stream = ExtResource( 3 )
@@ -43,7 +47,7 @@ stream/stream = ExtResource( 3 )
 
 [node name="player" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 704.608, 1360.1 )
+transform/pos = Vector2( 659.975, 1557.35 )
 limit_right = 6360
 limit_up = -10000
 
