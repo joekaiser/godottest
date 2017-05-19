@@ -5,6 +5,8 @@ var sfx
 var owner
 var taken=false;
 
+var player_class = preload("res://scenes/super_bunny/super_bunny.gd")
+
 func _ready():
 	#todo: make sure the owner is a level_root
 	if get_owner() != null:
@@ -16,17 +18,18 @@ func _ready():
 			get_node("AnimatedSprite").play("special")
 	
 func _collect_carrot(body):
-	if taken:
-		return
-	taken = true
-	if special:
-		owner.score +=50
-		owner.get_player().health +=1
-		sfx.play("carrot_powerup")
-	else:
-		owner.score += 20
-		sfx.play("collect_carrot")
-	
-	#remove the node
-	get_node("anim").play("collect")
+	if body && body extends player_class:
+		if taken:
+			return
+		taken = true
+		if special:
+			owner.score +=50
+			owner.get_player().health +=1
+			sfx.play("carrot_powerup")
+		else:
+			owner.score += 20
+			sfx.play("collect_carrot")
+		
+		#remove the node
+		get_node("anim").play("collect")
 	

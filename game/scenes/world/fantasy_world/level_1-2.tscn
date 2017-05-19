@@ -1,0 +1,296 @@
+[gd_scene load_steps=16 format=1]
+
+[ext_resource path="res://scenes/world/level_root.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/world/fantasy_world/level_1-2.gd" type="Script" id=2]
+[ext_resource path="res://scenes/world/fantasy_world/music/Insert-Quarter.ogg" type="AudioStream" id=3]
+[ext_resource path="res://scenes/world/fantasy_world/map_1-2.scn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/world/fantasy_world/backgrounds/Background - 01.tex" type="Texture" id=5]
+[ext_resource path="res://scenes/world/fantasy_world/backgrounds/Background - 02.tex" type="Texture" id=6]
+[ext_resource path="res://scenes/world/fantasy_world/backgrounds/Background - 03.tex" type="Texture" id=7]
+[ext_resource path="res://scenes/moving_platforms/platform1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/star/star.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/carrot/carrot.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/enemies/land_monster_1/land_monster_1.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/enemies/land_monster_2/land_monster_2.tscn" type="PackedScene" id=12]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "New Anim"
+length = 12.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 1, 6, 7 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3856.25, 1046.41 ), Vector2( 3856.25, 1046.41 ), Vector2( 5262.87, 1045 ), Vector2( 5262.87, 1045 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "New Anim"
+length = 10.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 1.5, 4.5, 6.5 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 9706, 1667.08 ), Vector2( 9706, 1667.08 ), Vector2( 10419.6, 1084.73 ), Vector2( 10419.6, 1084.73 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "New Anim"
+length = 10.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 1.5, 4.5, 6.5 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 11212.3, 528.125 ), Vector2( 11212.3, 528.125 ), Vector2( 10546.9, 1084.73 ), Vector2( 10546.9, 1084.73 ) ]
+}
+
+[node name="level_root" instance=ExtResource( 1 )]
+
+script/script = ExtResource( 2 )
+player_class = NodePath("player")
+death_at_Y = 3000
+
+[node name="player" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 182.985, 1680.39 )
+limit_right = 12768
+
+[node name="Camera2D" parent="player"]
+
+limit/right = 12800
+
+[node name="music_global" parent="."]
+
+stream/stream = ExtResource( 3 )
+
+[node name="map_1-2" parent="." instance=ExtResource( 4 )]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+editor/display_folded = true
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+scroll/offset = Vector2( 0, 0 )
+scroll/base_offset = Vector2( 0, 0 )
+scroll/base_scale = Vector2( 1, 1 )
+scroll/limit_begin = Vector2( 0, 0 )
+scroll/limit_end = Vector2( 0, 0 )
+scroll/ignore_camera_zoom = true
+
+[node name="sky" type="ParallaxLayer" parent="ParallaxBackground"]
+
+motion/scale = Vector2( 0.1, 1 )
+motion/offset = Vector2( 0, 0 )
+motion/mirroring = Vector2( 1334, 3000 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/sky"]
+
+transform/pos = Vector2( 667.002, 1500.01 )
+transform/scale = Vector2( 1, 2 )
+texture = ExtResource( 5 )
+
+[node name="clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+
+motion/scale = Vector2( 0.4, 1 )
+motion/offset = Vector2( 0, 0 )
+motion/mirroring = Vector2( 1334, 3000 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/clouds"]
+
+transform/pos = Vector2( 666.812, 903.756 )
+transform/scale = Vector2( 1, 1.2445 )
+texture = ExtResource( 6 )
+
+[node name="hills" type="ParallaxLayer" parent="ParallaxBackground"]
+
+motion/scale = Vector2( 0.8, 1 )
+motion/offset = Vector2( 0, 0 )
+motion/mirroring = Vector2( 1334, 3000 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/hills"]
+
+transform/pos = Vector2( 666.85, 1185.5 )
+texture = ExtResource( 7 )
+
+[node name="Platforms" type="Node" parent="."]
+
+editor/display_folded = true
+
+[node name="platform" parent="Platforms" instance=ExtResource( 8 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 3856.25, 1046.41 )
+
+[node name="platform_animator" parent="Platforms/platform"]
+
+"anims/New Anim" = SubResource( 1 )
+autoplay = "New Anim"
+
+[node name="platform 2" parent="Platforms" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 9706, 1667.08 )
+
+[node name="platform_animator" parent="Platforms/platform 2"]
+
+"anims/New Anim" = SubResource( 2 )
+autoplay = "New Anim"
+
+[node name="platform 3" parent="Platforms" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 11212.3, 528.125 )
+
+[node name="platform_animator" parent="Platforms/platform 3"]
+
+"anims/New Anim" = SubResource( 3 )
+autoplay = "New Anim"
+
+[node name="star" parent="." instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 12557.5, 431.341 )
+
+[node name="carrots" type="Node" parent="."]
+
+editor/display_folded = true
+
+[node name="carrot" parent="carrots" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 678.687, 1696.54 )
+
+[node name="carrot1" parent="carrots" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 758.687, 1696.54 )
+
+[node name="carrot2" parent="carrots" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 838.687, 1696.54 )
+
+[node name="carrot3" parent="carrots" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 1025.48, 1567.81 )
+
+[node name="carrot4" parent="carrots" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 1105.48, 1567.81 )
+
+[node name="carrot5" parent="carrots" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 1497.56, 1440.44 )
+
+[node name="carrot6" parent="carrots" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 1577.56, 1440.44 )
+
+[node name="carrot7" parent="carrots" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 2785.17, 1632.31 )
+
+[node name="carrot8" parent="carrots" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 3296.73, 1567.61 )
+
+[node name="carrot9" parent="carrots" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 3513.35, 1375.72 )
+
+[node name="carrot10" parent="carrots" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 3081.76, 1185.04 )
+
+[node name="carrot11" parent="carrots" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 3550.14, 992.648 )
+
+[node name="carrot12" parent="carrots" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 5740.18, 1375.25 )
+special = true
+
+[node name="carrot13" parent="carrots" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 6118.78, 1301.93 )
+
+[node name="carrot14" parent="carrots" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 6187.69, 1366.17 )
+
+[node name="carrot15" parent="carrots" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 6255.38, 1426.47 )
+
+[node name="carrot16" parent="carrots" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 7208.09, 1377.78 )
+
+[node name="carrot20" parent="carrots" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 7673.4, 1116.09 )
+
+[node name="carrot17" parent="carrots" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 8221.92, 1445.9 )
+
+[node name="carrot18" parent="carrots" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 9709.2, 1610.43 )
+
+[node name="carrot19" parent="carrots" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 11218.9, 475.049 )
+
+[node name="monsters" type="Node" parent="."]
+
+[node name="enemy" parent="monsters" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 1737.33, 1436.4 )
+
+[node name="enemy1" parent="monsters" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 3205.18, 1689.39 )
+
+[node name="enemy2" parent="monsters" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 9125.5, 1686.67 )
+
+[node name="enemy 2" parent="monsters" instance=ExtResource( 12 )]
+
+transform/pos = Vector2( 3129.6, 1181.07 )
+
+[node name="enemy3" parent="monsters" instance=ExtResource( 12 )]
+
+transform/pos = Vector2( 5783.95, 1500.28 )
+
+[node name="enemy5" parent="monsters" instance=ExtResource( 12 )]
+
+transform/pos = Vector2( 12298.2, 477.946 )
+
+[node name="enemy4" parent="monsters" instance=ExtResource( 12 )]
+
+transform/pos = Vector2( 7033.78, 1501.5 )
+
+
+[editable path="Platforms/platform"]
+[editable path="Platforms/platform 2"]
+[editable path="Platforms/platform 3"]

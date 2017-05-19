@@ -2,7 +2,7 @@ extends Node
 
 #config
 export(NodePath) var player_class
-export var death_at_Y = 100000
+export var death_at_Y = 3000
 
 #state
 var score = 0

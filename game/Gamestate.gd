@@ -10,6 +10,8 @@ var current_scene_path
 var level_index = 0
 var levels = StringArray()
 
+
+
 func _ready():
 	#Logger.set_default_output_level(Logger.VERBOSE)
 	current_scene = get_tree().get_root().get_child(get_tree().get_root().get_child_count()-1)
@@ -34,12 +36,13 @@ func next_level():
 		Logger.error("next level out of bounds")
 	
 func reload_current_scene():
+	Logger.info("reloading scene")
 	goto_scene(current_scene_path)
 
 func init_level_queue():
 	Logger.verbose("filling level queue")
 	levels.push_back("res://scenes/world/fantasy_world/level_1-1.tscn")
-	levels.push_back("res://scenes/world/fantasy_world/level_1-1.tscn")
+	levels.push_back("res://scenes/world/fantasy_world/level_1-2.tscn")
 
 func get_level_complete_scene():
 	return level_complete_scene.instance()
